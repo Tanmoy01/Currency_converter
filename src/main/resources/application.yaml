@@ -1,0 +1,6 @@
+server:
+  port: 8000
+
+currency_rate:
+  url: https://api.apilayer.com/exchangerates_data/latest?symbols={0}&base={1}
+  api_key: j2st2zVaNxwlizZJHfBDIuM798F8N0L6
