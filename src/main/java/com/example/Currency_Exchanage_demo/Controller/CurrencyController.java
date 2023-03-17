@@ -20,16 +20,24 @@ public class CurrencyController {
     @GetMapping("/exchange")
     ResponseEntity<Object> convert(@RequestHeader("base") String base,
                                    @RequestHeader("destination") String destination) {
-        try {
-            Map<String, String> result = service.convert(base, destination);
+        Map<String, String> result = service.convert(base, destination);
             if (!result.containsKey("error")) {
                 return ResponseEntity.ok(result);
             } else {
                 return ResponseEntity.badRequest().body(result);
             }
-        } catch (Exception e) {
-            System.out.println(e.getLocalizedMessage());
-            return ResponseEntity.internalServerError().body("Something Went Wrong. Please try again");
+    }
+
+    @GetMapping("/predict")
+    ResponseEntity<Object> predict(@RequestHeader("baseCurrency") String baseCurrency,
+                                   @RequestHeader("date") String date) {
+
+        Map<String, String> result = service.predict(baseCurrency, date);
+        if (!result.containsKey("error")) {
+            return ResponseEntity.ok(result);
+        } else {
+            return ResponseEntity.badRequest().body(result);
         }
+
     }
 }

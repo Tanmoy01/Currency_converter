@@ -2,5 +2,6 @@ server:
   port: 8000
 
 currency_rate:
-  url: https://api.apilayer.com/exchangerates_data/latest?symbols={0}&base={1}
+  latest_url: https://api.apilayer.com/exchangerates_data/latest?symbols={0}&base={1}
+  historical_url: https://api.apilayer.com/exchangerates_data/timeseries?symbols={0}&base={1}&start_date={2}&end_date={3}
   api_key: j2st2zVaNxwlizZJHfBDIuM798F8N0L6
